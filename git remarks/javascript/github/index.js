@@ -84,27 +84,54 @@ var _create_project_remark_dom = function (el, project_name) {
  * @private
  */
 var _bind_project_remarks = function () {
-    if (document.getElementsByClassName('repohead-details-container').length === 1) {
-        // 是否在项目页
-        var project = document.getElementsByClassName('repohead-details-container')[0].getElementsByTagName('h1')[0];
-        var project_name = project.getElementsByTagName('a')[1].getAttribute('href');
+    var project, projects, project_name, i;
+    // 项目页
+    if (document.getElementsByClassName('repohead-details-container').length === 1 &&
+        document.getElementsByClassName('repohead-details-container')[0].getElementsByTagName('h1').length === 1) {
+        project = document.getElementsByClassName('repohead-details-container')[0].getElementsByTagName('h1')[0];
+        projects = project.getElementsByTagName('a');
+        for (i = 0; i < projects.length; i++) {
+            if (projects[i].getAttribute('data-pjax') !== null) {
+                project_name = project.getElementsByTagName('a')[i].getAttribute('href');
+                break;
+            }
+        }
+
         _create_project_remark_dom(project, project_name);
-    } else if (document.getElementsByClassName('pinned-repo-item').length > 0) {
-        var projects = document.getElementsByClassName('pinned-repo-item');
-        for (var i = 0; i < projects.length; i++) {
-            if (projects[i].getElementsByTagName('a') != null && projects[i].getElementsByTagName('a').length > 0) {
-                var project_name = projects[i].getElementsByTagName('a')[0].getAttribute('href');
-                var input = _create_project_remark_dom(projects[i].getElementsByTagName('a')[0], project_name);
+        return true;
+    }
+
+    // 个人中心列表页
+    if (document.getElementsByClassName('user-profile-repo-filter').length === 1 &&
+        document.getElementsByTagName('h3').length > 0) {
+        projects = document.getElementsByTagName('h3');
+        for (i = 0; i < projects.length; i++) {
+            if (projects[i].getElementsByTagName('a').length === 1) {
+                project_name = projects[i].getElementsByTagName('a')[0].getAttribute('href');
+
+                if (project_name !== null)
+                    _create_project_remark_dom(projects[i], project_name);
             }
         }
-    } else {
-        var projects = document.getElementsByTagName('h3');
-        for (var i = 0; i < projects.length; i++) {
-            if (projects[i].getElementsByTagName('a') != null && projects[i].getElementsByTagName('a').length > 0) {
-                var project_name = projects[i].getElementsByTagName('a')[0].getAttribute('href');
-                var input = _create_project_remark_dom(projects[i], project_name);
+        return true;
+    }
+
+    // repositories 元素
+    if (document.getElementsByClassName('js-pinned-repos-reorder-container').length === 1 &&
+        document.getElementsByClassName('pinned-repo-item').length > 0) {
+        projects = document.getElementsByClassName('pinned-repo-item');
+        for (i = 0; i < projects.length; i++) {
+            var a = projects[i].getElementsByTagName('a');
+            for (var ii = 0; ii < a.length; ii++) {
+                if (a[ii].getElementsByTagName('span').length === 1) {
+                    project_name = a[ii].getAttribute('herf');
+
+                    _create_project_remark_dom(a[ii], project_name);
+                    break;
+                }
             }
         }
+        return true;
     }
 };
 
