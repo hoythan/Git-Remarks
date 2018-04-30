@@ -3,7 +3,7 @@ Add the Remark Information for plug-ins of their own to Github and Gitee
 
 ----
 
-> If you start a lot of projects on Github, and a lot of them are displayed in foreign languages, you will forget their specific role over time. 
+> If you star a lot of projects on Github, and a lot of them are displayed in foreign languages, you will forget their specific role over time. 
 > The Git Remarks plug-in enables you to add your own comment information to the project list page and the details page, making it faster and easier to browse your favorite projects. 
 
 ## Notes：
@@ -19,6 +19,7 @@ Visit [Chrome Web Store](https://chrome.google.com/webstore/detail/git-remarks/a
 ![Demo](https://github.com/hoythan/Git-Remarks/blob/master/gif.gif?raw=true)
 
 ----
+
 
 > 如果你在 Github 上关注了很多项目，并且很多是国外的语言，时间久了就会忘记他们的具体作用。
 > Git Remarks 插件实现了允许在项目列表页和详情页中添加自己的备注信息，使得浏览自己喜欢的项目更快更方便。 
