@@ -15,6 +15,8 @@ It is recommended that you login your Github account and then use it. All the da
 
 Visit [Chrome Web Store](https://chrome.google.com/webstore/detail/git-remarks/ahmjaehgchhldbliihiakgaokenidhbf) to download now.
 
+## Gif Demo：
+![Demo](https://github.com/hoythan/Git-Remarks/blob/master/gif.gif?raw=true)
 
 ----
 
@@ -23,9 +25,4 @@ Visit [Chrome Web Store](https://chrome.google.com/webstore/detail/git-remarks/a
 
 ## 注意事项： 
 该插件与当前页面登录的 Github 用户名称所关联，所以更换账号会影响备注内容。 
-建议登录自己的 Github 账号后使用，所有数据保存于 Chrome，可以登录 Google 账号以在多设备中保存数据。 
-
-## 下载：
-[![](https://developer.chrome.com/webstore/images/ChromeWebStore_BadgeWBorder_v2_340x96.png)](https://chrome.google.com/webstore/detail/git-remarks/ahmjaehgchhldbliihiakgaokenidhbf)
-
-立即访问 [Chrome Web Store](https://chrome.google.com/webstore/detail/git-remarks/ahmjaehgchhldbliihiakgaokenidhbf) 下载.
+建议登录自己的 Github 账号后使用，所有数据保存于 Chrome，可以登录 Google 账号以在多设备中保存数据。
