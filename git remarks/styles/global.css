@@ -1,0 +1,18 @@
+.git_remarks_plugin__input {
+    display: block;
+    position: absolute;
+    height: 26px;
+    margin-top: 30px;
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 12px;
+    line-height: 26px;
+    color: #537994;
+    font-weight: 600;
+    background-color: transparent;
+}
+
+.git_remarks_plugin__input::placeholder {
+
+}
