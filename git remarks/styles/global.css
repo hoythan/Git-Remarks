@@ -16,3 +16,11 @@
 .git_remarks_plugin__input::placeholder {
 
 }
+
+.pinned-repos-list .pinned-repo-item-content span.d-block {
+    position: relative;
+}
+
+#js-repo-pjax-container .repohead-details-container.clearfix.container {
+    position: relative;
+}

@@ -36,6 +36,7 @@ var _create_project_remark_dom = function (el, project_name) {
 
     // 调整元素位置，以供 input 填充
     el.style.marginBottom = '30px';
+    el.style.display = 'block';
     // 打上标记，防止重复绑定
     el.setAttribute('class', el.getAttribute('class') + ' ' + bindMark);
     var vue = new Vue({
@@ -88,6 +89,14 @@ var _bind_project_remarks = function () {
         var project = document.getElementsByClassName('repohead-details-container')[0].getElementsByTagName('h1')[0];
         var project_name = project.getElementsByTagName('a')[1].getAttribute('href');
         _create_project_remark_dom(project, project_name);
+    } else if (document.getElementsByClassName('pinned-repo-item').length > 0) {
+        var projects = document.getElementsByClassName('pinned-repo-item');
+        for (var i = 0; i < projects.length; i++) {
+            if (projects[i].getElementsByTagName('a') != null && projects[i].getElementsByTagName('a').length > 0) {
+                var project_name = projects[i].getElementsByTagName('a')[0].getAttribute('href');
+                var input = _create_project_remark_dom(projects[i].getElementsByTagName('a')[0], project_name);
+            }
+        }
     } else {
         var projects = document.getElementsByTagName('h3');
         for (var i = 0; i < projects.length; i++) {
@@ -171,7 +180,7 @@ var _watch_dom_flash = function (dom) {
 document.addEventListener("DOMContentLoaded", function () {
     // 绑定组件
     _bind_project_remarks();
-    // 监听 dom 刷新
+    // 监听 github dom 刷新
     if (document.getElementById('js-pjax-container') != null) {
         _watch_dom_flash(document.getElementById('js-pjax-container'));
     } else if (document.getElementById('js-repo-pjax-container') != null) {
