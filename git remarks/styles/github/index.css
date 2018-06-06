@@ -1,0 +1,15 @@
+.pinned-repos-list .pinned-repo-item-content span.d-block {
+    position: relative;
+    margin-bottom: -6px;!important;
+}
+
+.pinned-repos-list .pinned-repo-item-content span.d-block input {
+    margin-top: 20px!important;
+}
+.pinned-repos-list .pinned-repo-item-content span.d-block a {
+    margin-bottom: 26px!important;
+}
+
+#js-repo-pjax-container .repohead-details-container.clearfix.container {
+    position: relative;
+}

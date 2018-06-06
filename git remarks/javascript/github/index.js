@@ -37,6 +37,7 @@ var _create_project_remark_dom = function (el, project_name) {
     // 调整元素位置，以供 input 填充
     el.style.marginBottom = '30px';
     el.style.display = 'block';
+
     // 打上标记，防止重复绑定
     el.setAttribute('class', el.getAttribute('class') + ' ' + bindMark);
     var vue = new Vue({
@@ -76,6 +77,12 @@ var _create_project_remark_dom = function (el, project_name) {
     ;
     var input = vue.$mount();
     el.parentNode.insertBefore(input.$el, el);
+
+    // 有 fork 时 input 应该更往下
+    console.log(el.getElementsByClassName('fork-flag'),input);
+    if(el.getElementsByClassName('fork-flag').length > 0)
+        input.$el.style.marginTop = '40px';
+
     return input;
 };
 
@@ -98,13 +105,13 @@ var _bind_project_remarks = function () {
         }
 
         _create_project_remark_dom(project, project_name);
-        return true;
     }
 
+
     // 个人中心列表页
-    if (document.getElementsByClassName('user-profile-repo-filter').length === 1 &&
-        document.getElementsByTagName('h3').length > 0) {
-        projects = document.getElementsByTagName('h3');
+    if (document.getElementById('js-pjax-container') !== null) {
+        var list = document.getElementById('js-pjax-container');
+        projects = list.getElementsByTagName('h3');
         for (i = 0; i < projects.length; i++) {
             if (projects[i].getElementsByTagName('a').length === 1) {
                 project_name = projects[i].getElementsByTagName('a')[0].getAttribute('href');
@@ -113,25 +120,22 @@ var _bind_project_remarks = function () {
                     _create_project_remark_dom(projects[i], project_name);
             }
         }
-        return true;
     }
 
     // repositories 元素
-    if (document.getElementsByClassName('js-pinned-repos-reorder-container').length === 1 &&
+    if (document.getElementsByClassName('pinned-repos-list').length === 1 &&
         document.getElementsByClassName('pinned-repo-item').length > 0) {
         projects = document.getElementsByClassName('pinned-repo-item');
         for (i = 0; i < projects.length; i++) {
             var a = projects[i].getElementsByTagName('a');
             for (var ii = 0; ii < a.length; ii++) {
-                if (a[ii].getElementsByTagName('span').length === 1) {
-                    project_name = a[ii].getAttribute('herf');
-
+                if (a[ii].getElementsByClassName('text-bold') != null && a[ii].getElementsByTagName('span').length === 1) {
+                    project_name = a[ii].getAttribute('href');
                     _create_project_remark_dom(a[ii], project_name);
                     break;
                 }
             }
         }
-        return true;
     }
 };
 

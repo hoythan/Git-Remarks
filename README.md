@@ -25,5 +25,5 @@ Visit [Chrome Web Store](https://chrome.google.com/webstore/detail/git-remarks/a
 > Git Remarks 插件实现了允许在项目列表页和详情页中添加自己的备注信息，使得浏览自己喜欢的项目更快更方便。 
 
 ## 注意事项： 
-该插件与当前页面登录的 Github 用户名称所关联，所以更换账号会影响备注内容。 
+该插件保存的数据与当前页面登录的 Github 用户名称关联，所以更换账号会无法查看其它账号的备注内容。 
 建议登录自己的 Github 账号后使用，所有数据保存于 Chrome，可以登录 Google 账号以在多设备中保存数据。
